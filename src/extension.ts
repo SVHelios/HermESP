@@ -20,7 +20,41 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	context.subscriptions.push(
+    vscode.window.registerWebviewViewProvider(
+      "HermESPMainView",
+      new HelloWebviewViewProvider(context)
+    )
+  );
+
+
 }
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
+
+
+class HelloWebviewViewProvider implements vscode.WebviewViewProvider {
+  constructor(private readonly context: vscode.ExtensionContext) {}
+
+  resolveWebviewView(webviewView: vscode.WebviewView) {
+    webviewView.webview.options = {
+      enableScripts: true
+    };
+
+    webviewView.webview.html = this.getHtml();
+  }
+
+  private getHtml(): string {
+    return /* html */ `
+      <!DOCTYPE html>
+      <html lang="en">
+      <body>
+        <h1>HermESP</h1>
+        <p>Wähle hier aus, was Du tun möchtest.</p>
+      </body>
+      </html>
+    `;
+  }
+}

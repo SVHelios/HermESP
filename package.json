@@ -17,8 +17,31 @@
         "command": "hermesp.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "views": {
+      "myExtensionSecondary": [
+        {
+          "id": "HermESPMainView",
+          "name": "HermESPMainView",
+          "type": "webview"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "myExtensionSecondary",
+          "title": "HermESP",
+          "icon": "media/icon.svg"
+        }
+      ]
+    }        
   },
+
+  "activationEvents": [
+  "onView:HermESPMainView"
+  ],
+
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
