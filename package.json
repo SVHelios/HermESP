@@ -1,7 +1,7 @@
 {
   "name": "hermesp",
   "displayName": "HermESP",
-  "description": "Primitive extension for running micropython-code directly on an ESP32. This is created purely for educational purposes.",
+  "description": "Extension for educational mycropython ESP coding",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.107.0"
